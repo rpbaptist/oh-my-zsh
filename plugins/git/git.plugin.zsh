@@ -1,7 +1,7 @@
 # Aliases
 alias g='git'
 compdef g=git
-alias gst='git status'
+alias gs='git status'
 compdef _git gst=git-status
 alias gd='git diff'
 compdef _git gd=git-diff
@@ -50,6 +50,8 @@ alias grbc='git rebase --continue'
 compdef _git grbc=git-rebase
 alias grba='git rebase --abort'
 compdef _git grba=git-rebase
+alias grbs='git rebase --skip'
+compdef _git grbs=git-rebase
 alias gb='git branch'
 compdef _git gb=git-branch
 alias gba='git branch -a'
