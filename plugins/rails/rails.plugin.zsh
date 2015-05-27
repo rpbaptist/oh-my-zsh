@@ -45,7 +45,7 @@ alias rsd='rails server --debugger'
 
 # Rake aliases
 alias rdm='rake db:migrate'
-alias rdmdt='rake db:migrate && rake db:migrate -g RET'
+alias rdmall='rake db:migrate && rake db:migrate -g RET'
 alias rdms='rake db:migrate:status'
 alias rdr='rake db:rollback'
 alias rdc='rake db:create'
@@ -54,6 +54,7 @@ alias rdd='rake db:drop'
 alias rdtc='rake db:test:clone'
 alias rdtp='rake db:test:prepare'
 alias rdmtc='rake db:migrate db:test:clone'
+alias rdsl='rake db:schema:load'
 
 alias rlc='rake log:clear'
 alias rn='rake notes'
