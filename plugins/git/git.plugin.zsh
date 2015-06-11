@@ -88,7 +88,7 @@ compdef _git gm=git-merge
 alias grh='git reset HEAD'
 alias grs='git reset --soft'
 alias grhh='git reset HEAD --hard'
-alias gclean='git reset --hard && git clean -dfx'
+alias gclean='git reset --hard && git clean -f'
 alias gwc='git whatchanged -p --abbrev-commit --pretty=medium'
 
 # Sign and verify commits with GPG
