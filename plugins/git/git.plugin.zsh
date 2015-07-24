@@ -67,6 +67,8 @@ compdef gcount=git
 alias gcl='git config --list'
 alias gcp='git cherry-pick'
 compdef _git gcp=git-cherry-pick
+alias gcpc='git cherry-pick --continue'
+alias gcpa='git cherry-pick --abort'
 alias glg='git log --stat --max-count=10'
 compdef _git glg=git-log
 alias glgg='git log --graph --max-count=10'
@@ -85,6 +87,7 @@ alias gap='git add --patch'
 alias gaa='git add --all'
 alias gm='git merge'
 compdef _git gm=git-merge
+alias gma='git merge --abort'
 alias grh='git reset HEAD'
 alias grs='git reset --soft'
 alias grhh='git reset HEAD --hard'

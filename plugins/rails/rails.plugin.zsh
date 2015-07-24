@@ -56,6 +56,7 @@ alias rdtc='rake db:test:clone'
 alias rdtp='rake db:test:prepare'
 alias rdmtc='rake db:migrate db:test:clone'
 alias rdsl='rake db:schema:load'
+alias rdrt='rdd -g RET && rdc -g RET && rdsl -g RET'
 
 alias rlc='rake log:clear'
 alias rn='rake notes'
