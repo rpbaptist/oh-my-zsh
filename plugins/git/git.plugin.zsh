@@ -136,6 +136,9 @@ alias gsd='git svn dcommit'
 # Will return the current branch name
 # Usage example: git pull origin $(current_branch)
 #
+
+function gbsu() { git branch -u origin/$1 }
+
 function current_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
   ref=$(git rev-parse --short HEAD 2> /dev/null) || return
