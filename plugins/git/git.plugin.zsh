@@ -37,6 +37,7 @@ alias gco='git checkout'
 compdef _git gco=git-checkout
 alias gcm='git checkout master'
 alias gr='git remote'
+alias grm='git rm'
 compdef _git gr=git-remote
 alias grv='git remote -v'
 compdef _git grv=git-remote
