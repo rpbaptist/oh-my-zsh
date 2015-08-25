@@ -60,7 +60,6 @@ alias rdrt='rake db:{drop,create,schema:load,migrate} -g RET'
 
 alias rlc='rake log:clear'
 alias rn='rake notes'
-alias rr='rake routes'
 
 # legacy stuff
 alias sstat='thin --stats "/thin/stats" start'
@@ -74,4 +73,13 @@ alias sd='ruby script/server --debugger'
 
 function remote_console() {
   /usr/bin/env ssh $1 "( cd $2 && ruby script/console production )"
+}
+
+function rr() {
+  if [ -z $1 ]
+  then
+    rake routes
+  else
+    rake routes | grep $1
+  fi
 }
