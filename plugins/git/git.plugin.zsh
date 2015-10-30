@@ -62,6 +62,7 @@ compdef _git gb=git-branch
 alias gba='git branch -a'
 compdef _git gba=git-branch
 alias gbr='git branch --remote'
+alias gbu='git branch -u'
 alias gbl='git blame'
 alias gcount='git shortlog -sn'
 compdef gcount=git
@@ -138,8 +139,6 @@ alias gsd='git svn dcommit'
 # Usage example: git pull origin $(current_branch)
 #
 
-function gbsu() { git branch -u origin/$1 }
-
 function current_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
   ref=$(git rev-parse --short HEAD 2> /dev/null) || return
@@ -184,6 +183,9 @@ function work_in_progress() {
 # these alias commit and uncomit wip branches
 alias gwip='git add -A; git ls-files --deleted -z | xargs -r0 git rm; git commit -m "--wip--"'
 alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
+
+# Delete merged branches on master
+alias gbdm='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 
 # these alias ignore changes to file
 alias gignore='git update-index --assume-unchanged'
