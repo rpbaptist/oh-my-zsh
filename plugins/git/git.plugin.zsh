@@ -192,3 +192,8 @@ alias gignore='git update-index --assume-unchanged'
 alias gunignore='git update-index --no-assume-unchanged'
 # list temporarily ignored files
 alias gignored='git ls-files -v | grep "^[[:lower:]]"'
+
+alias gitmail='git config user.email'
+
+# These are actually [hub](https://github.com/github/hub) aliasses
+alias gpr='git pull-request'
