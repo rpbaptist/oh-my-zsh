@@ -30,7 +30,15 @@ compdef _git gc!=git-commit
 alias gca='git commit -v -a'
 compdef _git gc=git-commit
 alias gca!='git commit -v -a --amend'
-compdef _git gca!=git-commit
+alias gcan!='git commit -v -a -s --no-edit --amend'
+alias gcam='git commit -a -m'
+alias gcb='git checkout -b'
+alias gcf='git config --list'
+alias gcl='git clone --recursive'
+alias gclean='git clean -fd'
+alias gpristine='git reset --hard && git clean -dfx'
+alias gcm='git checkout master'
+
 alias gcmsg='git commit -m'
 compdef _git gcmsg=git-commit
 alias gco='git checkout'
@@ -102,11 +110,13 @@ compdef _git gcs=git-commit
 alias gsps='git show --pretty=short --show-signature'
 compdef _git gsps=git-show
 
-# Sign and verify tags with GPG
-alias gts='git tag -s'
-compdef _git gts=git-tag
-alias gvt='git verify-tag'
-compdef _git gvt=git verify-tag
+alias gd='git diff'
+alias gdca='git diff --cached'
+alias gdct='git describe --tags `git rev-list --tags --max-count=1`'
+alias gdt='git diff-tree --no-commit-id --name-only -r'
+gdv() { git diff -w "$@" | view - }
+compdef _git gdv=git-diff
+alias gdw='git diff --word-diff'
 
 #remove the gf alias
 #alias gf='git ls-files | grep'
@@ -187,11 +197,16 @@ alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
 # Delete merged branches on master
 alias gbdm='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 
+alias gts='git tag -s'
+alias gtv='git tag | sort -V'
+
 # these alias ignore changes to file
 alias gignore='git update-index --assume-unchanged'
 alias gunignore='git update-index --no-assume-unchanged'
-# list temporarily ignored files
-alias gignored='git ls-files -v | grep "^[[:lower:]]"'
+alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
+alias gup='git pull --rebase'
+alias gupv='git pull --rebase -v'
+alias glum='git pull upstream master'
 
 alias gitmail='git config user.email'
 
