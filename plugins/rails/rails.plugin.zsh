@@ -62,8 +62,6 @@ alias rdrt='rake db:{drop,create,schema:load,migrate} -g RET'
 
 alias rlc='rake log:clear'
 alias rn='rake notes'
-alias rr='rake routes'
-alias rrg='rake routes | grep'
 alias rt='rake test'
 alias rmd='rake middleware'
 
