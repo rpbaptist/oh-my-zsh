@@ -36,7 +36,7 @@ alias gcb='git checkout -b'
 alias gcf='git config --list'
 alias gcl='git clone --recursive'
 alias gclean='git clean -fd'
-alias gpristine='git reset --hard && git clean -dfx'
+alias ggitistine='git reset --hard && git clean -dfx'
 alias gcm='git checkout master'
 
 alias gcmsg='git commit -m'
@@ -195,7 +195,7 @@ alias gwip='git add -A; git ls-files --deleted -z | xargs -r0 git rm; git commit
 alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
 
 # Delete merged branches on master
-alias gbdm='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
+alias gbdm='git branch --merged | grep -v "\*" | grep -v master | xargs -n 1 git branch -d'
 
 alias gts='git tag -s'
 alias gtv='git tag | sort -V'
