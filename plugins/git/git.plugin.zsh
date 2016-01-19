@@ -3,7 +3,6 @@ alias g='git'
 compdef g=git
 alias gs='git status'
 compdef _git gst=git-status
-alias gd='git diff'
 compdef _git gd=git-diff
 alias gds='git diff --staged'
 compdef _git gdc=git-diff
@@ -32,10 +31,10 @@ compdef _git gc=git-commit
 alias gca!='git commit -v -a --amend'
 alias gcan!='git commit -v -a -s --no-edit --amend'
 alias gcam='git commit -a -m'
+alias gcf='git commit --fixup'
+
 alias gcb='git checkout -b'
-alias gcf='git config --list'
 alias gcl='git clone --recursive'
-alias gclean='git clean -fd'
 alias ggitistine='git reset --hard && git clean -dfx'
 alias gcm='git checkout master'
 
@@ -101,7 +100,7 @@ alias gma='git merge --abort'
 alias grh='git reset HEAD'
 alias grs='git reset --soft'
 alias grhh='git reset HEAD --hard'
-alias gclean='git reset --hard && git clean -f'
+alias gclean='git reset --hard && git clean -fd'
 alias gwc='git whatchanged -p --abbrev-commit --pretty=medium'
 
 # Sign and verify commits with GPG
