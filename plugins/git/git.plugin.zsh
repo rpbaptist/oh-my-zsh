@@ -211,3 +211,5 @@ alias gitmail='git config user.email'
 
 # These are actually [hub](https://github.com/github/hub) aliasses
 alias gpr='git pull-request'
+
+alias gpu='git push -u'
