@@ -213,3 +213,4 @@ alias gitmail='git config user.email'
 alias gpr='git pull-request'
 
 alias gpu='git push -u'
+alias gpf='git push --force-with-lease'
