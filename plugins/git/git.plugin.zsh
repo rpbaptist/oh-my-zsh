@@ -214,3 +214,6 @@ alias gpr='git pull-request'
 
 alias gpu='git push -u'
 alias gpf='git push --force-with-lease'
+
+alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
+alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit -m "--wip--"'

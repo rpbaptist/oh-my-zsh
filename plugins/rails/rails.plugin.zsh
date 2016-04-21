@@ -64,6 +64,7 @@ alias rlc='rake log:clear'
 alias rn='rake notes'
 alias rt='rake test'
 alias rmd='rake middleware'
+alias rsts='rake stats'
 
 # legacy stuff
 alias sstat='thin --stats "/thin/stats" start'
