@@ -13,13 +13,6 @@ compdef _acs acs='apt-cache search'
 alias afs='apt-file search --regexp'
 compdef _afs afs='apt-file search --regexp'
 
-# These are apt-get only
-alias ags='apt-get source'   # asrc
-compdef _ags ags='apt-get source'
-
-alias acp='apt-cache policy' # app
-compdef _acp acp='apt-cache policy'
-
 # superuser operations ######################################################
 alias afu='sudo apt-file update'
 compdef _afu afu='sudo apt-file update'
@@ -27,35 +20,32 @@ compdef _afu afu='sudo apt-file update'
 alias ppap='sudo ppa-purge'
 compdef _ppap ppap='sudo ppa-purge'
 
-alias ag='sudo apt-get'            # age - but without sudo
-alias aga='sudo apt-get autoclean' # aac
-alias agar='sudo apt-get autoremove'
-alias agb='sudo apt-get build-dep' # abd
-alias agc='sudo apt-get clean'     # adc
-alias agd='sudo apt-get dselect-upgrade' # ads
-alias agi='sudo apt-get install'  # ai
-alias agp='sudo apt-get purge'    # ap
-alias agr='sudo apt-get remove'   # ar
-alias agu='sudo apt-get update'   # ad
-alias agud='sudo apt-get update && sudo apt-get dist-upgrade' #adu
-alias agug='sudo apt-get upgrade' # ag
-alias aguu='sudo apt-get update && sudo apt-get upgrade'      #adg
-alias agar='sudo apt-get autoremove'
+alias apac='sudo apt autoclean'
+alias apar='sudo apt autoremove'
+alias apbd='sudo apt build-dep'
+alias apc='sudo apt clean'
+alias apdu='sudo apt dselect-upgrade'
+alias api='sudo apt install'
+alias app='sudo apt purge'
+alias aprm='sudo apt remove'
+alias apu='sudo apt update'
+alias apud='sudo apt update && sudo apt dist-upgrade'
+alias apug='sudo apt upgrade'
+alias apuu='sudo apt update && sudo apt upgrade'
+alias apar='sudo apt autoremove'
 
-compdef _ag ag='sudo apt-get'
-compdef _aga aga='sudo apt-get autoclean'
-compdef _agar agar='sudo apt-get autoremove'
-compdef _agb agb='sudo apt-get build-dep'
-compdef _agc agc='sudo apt-get clean'
-compdef _agd agd='sudo apt-get dselect-upgrade'
-compdef _agi agi='sudo apt-get install'
-compdef _agp agp='sudo apt-get purge'
-compdef _agr agr='sudo apt-get remove'
-compdef _agu agu='sudo apt-get update'
-compdef _agud agud='sudo apt-get update && sudo apt-get dist-upgrade'
-compdef _agug agug='sudo apt-get upgrade'
-compdef _aguu aguu='sudo apt-get update && sudo apt-get upgrade'
-compdef _agar agar='sudo apt-get autoremove'
+compdef _apac apac='sudo apt autoclean'
+compdef _apar apar='sudo apt autoremove'
+compdef _apbd apbd='sudo apt build-dep'
+compdef _apc apc='sudo apt clean'
+compdef _apdu apdu='sudo apt dselect-upgrade'
+compdef _api api='sudo apt install'
+compdef _app app='sudo apt purge'
+compdef _aprm aprm='sudo apt remove'
+compdef _apu apu='sudo apt update'
+compdef _apud apud='sudo apt update && sudo apt dist-upgrade'
+compdef _apug apug='sudo apt upgrade'
+compdef _apuu apuu='sudo apt update && sudo apt upgrade'
 
 # Remove ALL kernel images and headers EXCEPT the one in use
 alias kclean='sudo aptitude remove -P ?and(~i~nlinux-(ima|hea) \
@@ -78,13 +68,13 @@ aar() {
 	else
 		read "PACKAGE?Type in the package name to install/upgrade with this ppa [${1##*/}]: "
 	fi
-	
+
 	if [ -z "$PACKAGE" ]; then
 		PACKAGE=${1##*/}
 	fi
-	
-	sudo apt-add-repository $1 && sudo apt-get update
-	sudo apt-get install $PACKAGE
+
+	sudo apt-add-repository $1 && sudo apt update
+	sudo apt install $PACKAGE
 }
 
 # Prints apt history
