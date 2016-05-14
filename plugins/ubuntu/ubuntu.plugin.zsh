@@ -33,6 +33,9 @@ alias apud='sudo apt update && sudo apt dist-upgrade'
 alias apug='sudo apt upgrade'
 alias apuu='sudo apt update && sudo apt upgrade'
 
+alias aps='apt show'
+compdef _aps aps='apt show'
+
 compdef _apac apac='sudo apt autoclean'
 compdef _apar apar='sudo apt autoremove'
 compdef _apbd apbd='sudo apt build-dep'
