@@ -12,7 +12,7 @@ function mysql-restore() {
         echo "SET UNIQUE_CHECKS=1;"
         echo "SET AUTOCOMMIT=1;"
         echo "COMMIT;"
-    ) | mysql -u root -p "$1"
+    ) | mysql -u root -h 127.0.0.1 -p "$1_development"
 }
 
 function ssl-req() {
