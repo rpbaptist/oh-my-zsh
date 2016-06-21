@@ -35,8 +35,9 @@ alias gcf='git commit --fixup'
 
 alias gcb='git checkout -b'
 alias gcl='git clone --recursive'
-alias ggitistine='git reset --hard && git clean -dfx'
 alias gcm='git checkout master'
+
+alias grhom='git reset --hard origin/master'
 
 alias gcmsg='git commit -m'
 compdef _git gcmsg=git-commit
