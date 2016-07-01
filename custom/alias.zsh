@@ -1,6 +1,6 @@
 alias resh=". ~/.zshrc"
-alias zshenv="subl ~/.zshenv"
-alias ohmyzsh="subl ~/.oh-my-zsh"
+alias zshenv="$EDITOR ~/.zshenv"
+alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 
 alias sudo='sudo '
 alias sl='subl'
