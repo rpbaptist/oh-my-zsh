@@ -37,7 +37,7 @@ alias gcb='git checkout -b'
 alias gcl='git clone --recursive'
 alias gcm='git checkout master'
 
-alias grhom='git reset --hard origin/master'
+alias grho='git reset --hard @{upstream}'
 
 alias gcmsg='git commit -m'
 compdef _git gcmsg=git-commit
