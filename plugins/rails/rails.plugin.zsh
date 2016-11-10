@@ -13,6 +13,8 @@ function _rails_command () {
 function _rake_command () {
   if [ -e "bin/rake" ]; then
     bin/rake $@
+  elif type bundle &> /dev/null && [ -e "Gemfile" ]; then
+    bundle exec rake $@
   else
     command rake $@
   fi
@@ -34,6 +36,7 @@ alias -g RET='RAILS_ENV=test'
 
 # Rails aliases
 alias rc='rails console'
+alias rcs='rails console --sandbox'
 alias rd='rails destroy'
 alias rdb='rails dbconsole'
 alias rg='rails generate'
@@ -56,10 +59,8 @@ alias rdrs='rake db:reset'
 alias rdtc='rake db:test:clone'
 alias rdtp='rake db:test:prepare'
 alias rdmtc='rake db:migrate db:test:clone'
-
 alias rdsl='rake db:schema:load'
 alias rdrt='rake db:{drop,create,schema:load,migrate} -g RET'
-
 alias rlc='rake log:clear'
 alias rn='rake notes'
 alias rt='rake test'
