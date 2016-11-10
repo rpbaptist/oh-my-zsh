@@ -8,6 +8,8 @@ alias scp='noglob scp'
 alias ghostscript='/usr/bin/gs'
 alias toclip='xclip -sel clip <'
 
+alias todo='subl ~/Sync/todo/my.tasks'
+
 alias dirsize='du -sch ./* | sort -h'
 
 alias git='hub'
