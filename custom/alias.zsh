@@ -1,21 +1,25 @@
+#! bin/sh
+
 alias resh=". ~/.zshrc"
 alias zshenv="$EDITOR ~/.zshenv"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 
-alias sudo='sudo '
-alias sl='subl'
-alias scp='noglob scp'
-alias ghostscript='/usr/bin/gs'
-alias toclip='xclip -sel clip <'
+alias sudo="sudo "
+alias sl="subl"
+alias scp="noglob scp"
 
-alias todo='subl ~/Sync/todo/my.tasks'
+# I want to use gs for "git status"
+alias ghostscript="/usr/bin/gs"
+alias toclip="xclip -sel clip <"
 
-alias dirsize='du -sch ./* | sort -h'
+alias todo="subl ~/Sync/Notes/my.tasks"
 
-alias git='hub'
+alias dirsize="du -sch ./* | sort -h"
+
+alias git="hub"
 
 # Generate tags for sublime in a project.
-alias tags='ctags -R -f .tags'
+alias tags="ctags -R -f .tags"
 
 # Save files, save lives
 alias tp="trash-put"
