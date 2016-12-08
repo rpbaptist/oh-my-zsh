@@ -25,6 +25,7 @@ alias gdt='git difftool'
 alias gc='git commit -v'
 compdef _git gc=git-commit
 alias gc!='git commit -v --amend'
+alias gcn!='git commit -v --amend --no-edit'
 compdef _git gc!=git-commit
 alias gca='git commit -v -a'
 compdef _git gc=git-commit
