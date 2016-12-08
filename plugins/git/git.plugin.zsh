@@ -33,6 +33,10 @@ alias gcan!='git commit -v -a -s --no-edit --amend'
 alias gcam='git commit -a -m'
 alias gcf='git commit --fixup'
 
+function gcfr() {
+  git commit --fixup $1 && git rebase -i $1^
+}
+
 alias gcb='git checkout -b'
 alias gcl='git clone --recursive'
 alias gcm='git checkout master'
