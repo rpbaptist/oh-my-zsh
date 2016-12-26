@@ -12,7 +12,7 @@ alias scp="noglob scp"
 alias ghostscript="/usr/bin/gs"
 alias toclip="xclip -sel clip <"
 
-alias todo="subl ~/Sync/Notes/my.tasks"
+alias todo="subl ~/Dropbox/Notes/my.tasks"
 
 alias dirsize="du -sch ./* | sort -h"
 
@@ -25,3 +25,5 @@ alias tags="ctags -R -f .tags"
 alias tp="trash-put"
 
 alias dockerprune='docker rmi $(docker images -f "dangling=true" -q)'
+
+alias crontab='EDITOR=vi crontab'
