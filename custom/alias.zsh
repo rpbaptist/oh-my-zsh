@@ -23,6 +23,7 @@ alias tags="ctags -R -f .tags"
 
 # Save files, save lives
 alias tp="trash-put"
+alias rm='echo "Careful now!"; false'
 
 alias dockerprune='docker rmi $(docker images -f "dangling=true" -q)'
 
