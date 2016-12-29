@@ -23,3 +23,11 @@ function ssl-req() {
     -out $filename.csr \
     -subj "/C=NL/ST=Utrecht/L=Utrecht/O=Brightin/OU=Operations/CN=$1"
 }
+
+function tosl {
+  local tmp_subl_file=$(mktemp /tmp/subl-tempfile-XXXXXXXXXXXX)
+
+  cat > $tmp_subl_file
+  subl --wait $tmp_subl_file
+  \rm -f $tmp_subl_file
+}
