@@ -29,4 +29,7 @@ alias dockerprune='docker rmi $(docker images -f "dangling=true" -q)'
 
 alias crontab='EDITOR=vi crontab'
 
-alias ansible-update="ansible-playbook $HOME/.ansible/main.yml --vault-password-file $HOME/.ansible/vault-pass.txt"
+alias ansible-update="ANSIBLE_CONFIG=$HOME/.ansible/ansible.cfg \
+                      ansible-playbook $HOME/.ansible/main.yml \
+                      --inventory $HOME/.ansible/hosts \
+                      --vault-password-file $HOME/.ansible/vault-pass.txt"
