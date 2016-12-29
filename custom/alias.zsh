@@ -28,3 +28,5 @@ alias rm='echo "Careful now!"; false'
 alias dockerprune='docker rmi $(docker images -f "dangling=true" -q)'
 
 alias crontab='EDITOR=vi crontab'
+
+alias ansible-update="ansible-playbook $HOME/.ansible/main.yml --vault-password-file $HOME/.ansible/vault-pass.txt"
