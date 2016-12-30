@@ -2,7 +2,8 @@
 
 alias resh=". ~/.zshrc"
 alias zshenv="$EDITOR ~/.zshenv"
-alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
+alias zshrc="$EDITOR ~/.zshrc"
+alias omzsh="$EDITOR ~/.oh-my-zsh"
 
 alias sudo="sudo "
 alias sl="subl"
@@ -17,9 +18,6 @@ alias todo="subl ~/Dropbox/Notes/my.tasks"
 alias dirsize="du -sch ./* | sort -h"
 
 alias git="hub"
-
-# Generate tags for sublime in a project.
-alias tags="ctags -R -f .tags"
 
 # Save files, save lives
 alias tp="trash-put"
