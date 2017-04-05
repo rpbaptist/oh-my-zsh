@@ -32,6 +32,7 @@ alias apu='sudo apt update'
 alias apud='sudo apt update && sudo apt dist-upgrade'
 alias apug='sudo apt upgrade'
 alias apuu='sudo apt update && sudo apt upgrade'
+alias apuf='sudo apt update && sudo apt full-upgrade'
 
 alias aps='apt show'
 compdef _aps aps='apt show'
