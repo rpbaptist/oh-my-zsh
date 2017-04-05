@@ -31,3 +31,13 @@ function tosl {
   subl --wait $tmp_subl_file
   \rm -f $tmp_subl_file
 }
+
+# Update kernel to given version
+function uk() {
+  local version="$1"
+  sudo apt install "linux-headers-$version" \
+                   "linux-headers-$version-generic" \
+                   "linux-image-$version-generic" \
+                   "linux-tools-$version-generic" \
+                   "linux-image-extra-$version-generic"
+}
