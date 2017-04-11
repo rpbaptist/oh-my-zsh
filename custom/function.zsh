@@ -2,17 +2,16 @@ function hs() { heroku "$@" "--remote" "staging" }
 function hp() { heroku "$@" "--remote" "production" }
 
 function mysql-restore() {
-    echo $1;
     (
         echo "SET AUTOCOMMIT=0;"
         echo "SET UNIQUE_CHECKS=0;"
         echo "SET FOREIGN_KEY_CHECKS=0;"
-        cat "$1.sql"
+        cat "$1"
         echo "SET FOREIGN_KEY_CHECKS=1;"
         echo "SET UNIQUE_CHECKS=1;"
         echo "SET AUTOCOMMIT=1;"
         echo "COMMIT;"
-    ) | mysql -u root -h 127.0.0.1 -p "$1_development"
+    ) | mysql -u root -h 127.0.0.1 -p "$2"
 }
 
 function ssl-req() {
