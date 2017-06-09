@@ -64,7 +64,7 @@ alias mydeb='time dpkg-buildpackage -rfakeroot -us -uc'
 # apt-add-repository with automatic install/upgrade of the desired package
 # Usage: aar ppa:xxxxxx/xxxxxx [packagename]
 # If packagename is not given as 2nd argument the function will ask for it and guess the default by taking
-# the part after the / from the ppa name wich is sometimes the right name for the package you want to install
+# the part after the / from the ppa name which is sometimes the right name for the package you want to install
 aar() {
 	if [ -n "$2" ]; then
 		PACKAGE=$2
@@ -103,7 +103,7 @@ apt-history () {
         awk '{print $4"="$5}'
       ;;
     list)
-      zcat $(ls -rt /var/log/dpkg*)
+      zgrep --no-filename '' $(ls -rt /var/log/dpkg*)
       ;;
     *)
       echo "Parameters:"
