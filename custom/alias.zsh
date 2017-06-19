@@ -3,7 +3,7 @@
 alias resh=". ~/.zshrc"
 alias zshenv="$EDITOR ~/.zshenv"
 alias zshrc="$EDITOR ~/.zshrc"
-alias omzsh="$EDITOR ~/.oh-my-zsh"
+alias omz="$EDITOR ~/.oh-my-zsh"
 
 alias sudo="sudo "
 alias sl="subl"
