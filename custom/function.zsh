@@ -40,3 +40,7 @@ function uk() {
                    "linux-tools-$version-generic" \
                    "linux-image-extra-$version-generic"
 }
+
+function dblah() {
+  docker exec -t -i dropbox-lah dropbox "$@"
+}
