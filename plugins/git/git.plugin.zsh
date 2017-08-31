@@ -200,7 +200,7 @@ alias gwip='git add -A; git ls-files --deleted -z | xargs -r0 git rm; git commit
 alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
 
 # Delete merged branches on master
-alias gbdm='git branch --merged | grep -v "\*" | grep -v master | xargs -n 1 git branch -d'
+alias gbdm='git branch --merged | grep -v "\*" | grep -v master | grep -v production | xargs -n 1 git branch -d'
 
 alias gts='git tag -s'
 alias gtv='git tag | sort -V'
