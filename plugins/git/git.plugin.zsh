@@ -101,6 +101,7 @@ compdef _git ga=git-add
 alias gap='git add --patch'
 alias gaa='git add --all'
 alias gm='git merge'
+alias gmff='git merge --no-ff'
 compdef _git gm=git-merge
 alias gma='git merge --abort'
 alias grh='git reset HEAD'
