@@ -1,5 +1,9 @@
-function hs() { heroku "$@" "--remote" "staging" }
-function hp() { heroku "$@" "--remote" "production" }
+function hs() {
+  heroku "$@" "--remote" "staging"
+}
+function hp() {
+  heroku "$@" "--remote" "production"
+}
 
 function mysql-restore() {
     (
@@ -43,4 +47,12 @@ function uk() {
 
 function dblah() {
   docker exec -t -i dropbox-lah dropbox "$@"
+}
+
+function fix-slack-panel() {
+  ls -l slack*.svg
+  sudo \rm slack-indicator-highlight.svg
+  sudo mv slack-indicator-unread.svg slack-indicator-highlight.svg
+  sudo ln -s slack-indicator.svg slack-indicator-unread.svg
+  ls -l slack*.svg
 }
