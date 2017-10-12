@@ -197,7 +197,8 @@ function work_in_progress() {
   fi
 }
 # these alias commit and uncomit wip branches
-alias gwip='git add -A; git ls-files --deleted -z | xargs -r0 git rm; git commit -m "--wip--"'
+alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit -m "--wip-- [ci skip]"'
+
 alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
 
 # Delete merged branches on master
@@ -223,4 +224,3 @@ alias gpu='git push -u'
 alias gpf='git push --force-with-lease'
 
 alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
-alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit -m "--wip--"'
