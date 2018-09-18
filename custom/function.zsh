@@ -56,3 +56,7 @@ function fix-slack-panel() {
   sudo ln -s slack-indicator.svg slack-indicator-unread.svg
   ls -l slack*.svg
 }
+
+function sshrc() {
+  ssh "$@" -t "cd ~/app && /home/ubuntu/.rbenv/shims/bundle exec rails c"
+}
