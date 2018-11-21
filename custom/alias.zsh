@@ -31,3 +31,4 @@ alias ansible-update="ANSIBLE_CONFIG=$HOME/.ansible/ansible.cfg \
                       ansible-playbook $HOME/.ansible/main.yml \
                       --inventory $HOME/.ansible/hosts \
                       --vault-password-file $HOME/.ansible/vault-pass.txt"
+

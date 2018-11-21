@@ -60,3 +60,15 @@ function fix-slack-panel() {
 function sshrc() {
   ssh "$@" -t "cd ~/app && /home/ubuntu/.rbenv/shims/bundle exec rails c"
 }
+
+function watch-ci() {
+  local result
+  result=$(hub ci-status)
+
+  while [[ "$result" = "pending" ]]; do
+    result=$(hub ci-status)
+    echo "$result"
+
+    sleep 4
+  done
+}
