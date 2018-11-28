@@ -39,6 +39,18 @@ function gcfr() {
   git commit --fixup $1 && git rebase -i $1^
 }
 
+function grbi() {
+  local commit_hash
+  if [ -z "$1" ]
+  then
+  # First commit of the branch
+    commit_hash="$(git cherry master -v | head -1 |  awk '{split($0,a," "); print a[2]}')^"
+  else
+    commit_hash=$1
+  fi
+  git rebase -i "$commit_hash"
+}
+
 alias gcb='git checkout -b'
 alias gcl='git clone --recursive'
 alias gcm='git checkout master'
@@ -63,8 +75,6 @@ alias grset='git remote set-url'
 compdef _git grset=git-remote
 alias grup='git remote update'
 compdef _git grset=git-remote
-alias grbi='git rebase -i'
-compdef _git grbi=git-rebase
 alias grbc='git rebase --continue'
 compdef _git grbc=git-rebase
 alias grba='git rebase --abort'
