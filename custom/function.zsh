@@ -19,20 +19,22 @@ function mysql-restore() {
 }
 
 function ssl-req() {
-  local filename=`echo $1 | tr . _`
+  local filename
+  filename=$(echo $1 | tr . _)
   openssl req -nodes \
     -newkey rsa:2048 \
-    -keyout $filename.key \
-    -out $filename.csr \
+    -keyout "$filename.key" \
+    -out "$filename.csr" \
     -subj "/C=NL/ST=Utrecht/L=Utrecht/O=Brightin/OU=Operations/CN=$1"
 }
 
 function tosl {
-  local tmp_subl_file=$(mktemp /tmp/subl-tempfile-XXXXXXXXXXXX)
+  local tmp_subl_file
+  tmp_subl_file=$(mktemp /tmp/subl-tempfile-XXXXXXXXXXXX)
 
-  cat > $tmp_subl_file
-  subl --wait $tmp_subl_file
-  \rm -f $tmp_subl_file
+  cat > "$tmp_subl_file"
+  subl --wait "$tmp_subl_file"
+  \rm -f "$tmp_subl_file"
 }
 
 # Update kernel to given version
