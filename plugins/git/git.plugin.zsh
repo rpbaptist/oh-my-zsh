@@ -31,7 +31,7 @@ compdef _git gc!=git-commit
 alias gca='git commit -v -a'
 compdef _git gc=git-commit
 alias gca!='git commit -v -a --amend'
-alias gcan!='git commit -v -a -s --no-edit --amend'
+alias gcan!='git commit -a --no-edit --amend'
 alias gcam='git commit -a -m'
 alias gcf='git commit --fixup'
 
