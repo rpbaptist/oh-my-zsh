@@ -17,7 +17,7 @@ alias todo="subl ~/Dropbox/Notes/my.tasks"
 
 alias dirsize="du -sch ./* | sort -h"
 
-alias git="hub"
+alias git="lab"
 
 # Save files, save lives
 alias tp="trash-put"
