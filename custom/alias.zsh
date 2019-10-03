@@ -17,7 +17,7 @@ alias todo="subl ~/Dropbox/Notes/my.tasks"
 
 alias dirsize="du -sch ./* | sort -h"
 
-alias git="lab"
+# alias git="lab"
 
 # Save files, save lives
 alias tp="trash-put"
@@ -31,4 +31,3 @@ alias ansible-update="ANSIBLE_CONFIG=$HOME/.ansible/ansible.cfg \
                       ansible-playbook $HOME/.ansible/main.yml \
                       --inventory $HOME/.ansible/hosts \
                       --vault-password-file $HOME/.ansible/vault-pass.txt"
-

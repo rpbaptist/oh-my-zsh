@@ -212,9 +212,6 @@ alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commi
 
 alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
 
-# Delete merged branches on master
-alias gbdm='git branch --merged | grep -v "\*" | grep -v master | grep -v production | xargs -n 1 git branch -d'
-
 alias gts='git tag -s'
 alias gtv='git tag | sort -V'
 
@@ -229,9 +226,16 @@ alias glum='git pull upstream master'
 alias gitmail='git config user.email'
 
 # These are actually [hub](https://github.com/github/hub) aliasses
-alias gpr='git pull-request'
+# alias gpr='git pull-request'
+# These are actually [hub](https://github.com/github/hub) aliasses
+alias gmrc='lab mr create $1 -d'
 
 alias gpu='git push -u'
 alias gpf='git push --force-with-lease'
 
 alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
+
+# Delete merged branches on master
+alias gbdm='git branch --merged | egrep -v "(^\*|master|production)" | xargs -r -n 1 git branch -d'
+
+alias gsync='git fetch && git pull && gbdm && git remote prune origin'
