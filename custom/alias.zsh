@@ -31,3 +31,10 @@ alias ansible-update="ANSIBLE_CONFIG=$HOME/.ansible/ansible.cfg \
                       ansible-playbook $HOME/.ansible/main.yml \
                       --inventory $HOME/.ansible/hosts \
                       --vault-password-file $HOME/.ansible/vault-pass.txt"
+
+alias lbo='cd ~/code/lendahand/backoffice'
+alias lah='cd ~/code/lendahand/lendahand'
+alias lco='cd ~/code/lendahand/core'
+alias lpp='cd ~/code/lendahand/plusplus'
+alias lfr='cd ~/code/lendahand/framework'
+alias lfe='cd ~/code/lendahand/frontend'

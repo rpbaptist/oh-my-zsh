@@ -59,8 +59,8 @@ function fix-slack-panel() {
   ls -l slack*.svg
 }
 
-function sshrc() {
-  ssh "$@" -t "cd ~/app && /home/ubuntu/.rbenv/shims/bundle exec rails c"
+function sshrcbs() {
+  ssh "bs -t 'cd ~/app && /home/ubuntu/.rbenv/shims/bundle exec rails c'"
 }
 
 function watch-ci() {
@@ -73,4 +73,24 @@ function watch-ci() {
 
     sleep 4
   done
+}
+
+function kube::namespace() {
+  NAMESPACE="$1"
+  if [[ -z "$NAMESPACE" ]]; then
+    NAMESPACE="lendahand-14451601-production"
+  fi
+  echo "$NAMESPACE"
+}
+
+function kube::app-pod() {
+  kubectl get pods -n "$(kube::namespace $1)" | awk '/lendahand-app-(.*) / {print $1}' | head -n 1
+}
+
+function krc() {
+  kubectl exec -it "$(kube::app-pod $1)" -n "$(kube::namespace $1)" rails c
+}
+
+function kssh() {
+  kubectl exec -it "$(kube::app-pod $1)" -n "$(kube::namespace $1)" bash
 }
