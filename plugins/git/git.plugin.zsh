@@ -52,7 +52,10 @@ function grbi() {
 }
 
 alias gcb='git checkout -b'
-alias gcl='git clone --recursive'
+alias gcf='git config --list'
+alias gcl='git clone --recurse-submodules'
+alias gclean='git clean -id'
+alias gpristine='git reset --hard && git clean -dffx'
 alias gcm='git checkout master'
 
 alias grho='git reset --hard @{upstream}'
@@ -207,10 +210,18 @@ function work_in_progress() {
     echo "WIP!!"
   fi
 }
-# these alias commit and uncomit wip branches
-alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit -m "--wip-- [ci skip]"'
 
-alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
+alias gstaa='git stash apply'
+alias gstc='git stash clear'
+alias gstd='git stash drop'
+alias gstl='git stash list'
+alias gstp='git stash pop'
+alias gsts='git stash show --text'
+alias gstu='git stash --include-untracked'
+alias gstall='git stash --all'
+alias gsu='git submodule update'
+alias gsw='git switch'
+alias gswc='git switch -c'
 
 alias gts='git tag -s'
 alias gtv='git tag | sort -V'
@@ -239,3 +250,19 @@ alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
 alias gbdm='git branch --merged | egrep -v "(^\*|master|production)" | xargs -r -n 1 git branch -d'
 
 alias gsync='git fetch && git pull && gbdm && git remote prune origin'
+
+alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify --no-gpg-sign -m "--wip-- [skip ci]"'
+
+function grename() {
+  if [[ -z "$1" || -z "$2" ]]; then
+    echo "Usage: $0 old_branch new_branch"
+    return 1
+  fi
+
+  # Rename branch locally
+  git branch -m "$1" "$2"
+  # Rename branch in origin remote
+  if git push origin :"$1"; then
+    git push --set-upstream origin "$2"
+  fi
+}
