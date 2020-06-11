@@ -52,7 +52,6 @@ function grbi() {
 }
 
 alias gcb='git checkout -b'
-alias gcf='git config --list'
 alias gcl='git clone --recurse-submodules'
 alias gclean='git clean -id'
 alias gpristine='git reset --hard && git clean -dffx'
