@@ -75,22 +75,25 @@ function watch-ci() {
   done
 }
 
-function kube::namespace() {
-  NAMESPACE="$1"
-  if [[ -z "$NAMESPACE" ]]; then
-    NAMESPACE="lendahand-14451601-production"
-  fi
-  echo "$NAMESPACE"
+#
+# Some usefull kubectl commands
+#
+function kube::find-namespace() {
+  kubectl get namespaces | tail -n +2 | fzf | awk '/(.*)/ {print $1}'
 }
-
 function kube::app-pod() {
-  kubectl get pods -n "$(kube::namespace $1)" | awk '/lendahand-app-(.*) / {print $1}' | head -n 1
+  NAMESPACE=$1
+  kubectl get pods -n "$NAMESPACE" | awk '/(.*)-app-(.*) / {print $1}' | head -n 1
 }
-
-function krc() {
-  kubectl exec -it "$(kube::app-pod $1)" -n "$(kube::namespace $1)" rails c
+function kube-rc() {
+  NAMESPACE=$(kube::find-namespace)
+  APP_POD=$(kube::app-pod $NAMESPACE)
+  echo "Dropping into rails console on $APP_POD in $NAMESPACE"
+  kubectl exec -it "$APP_POD" -n "$NAMESPACE" rails c
 }
-
-function kssh() {
-  kubectl exec -it "$(kube::app-pod $1)" -n "$(kube::namespace $1)" bash
+function kube-ssh() {
+  NAMESPACE=$(kube::find-namespace)
+  APP_POD=$(kube::app-pod $NAMESPACE)
+  echo "Dropping into bash on $APP_POD in $NAMESPACE"
+  kubectl exec -it "$APP_POD" -n "$NAMESPACE" bash
 }
