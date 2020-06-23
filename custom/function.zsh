@@ -1,10 +1,3 @@
-function hs() {
-  heroku "$@" "--remote" "staging"
-}
-function hp() {
-  heroku "$@" "--remote" "production"
-}
-
 function mysql-restore() {
     (
         echo "SET AUTOCOMMIT=0;"
@@ -16,16 +9,6 @@ function mysql-restore() {
         echo "SET AUTOCOMMIT=1;"
         echo "COMMIT;"
     ) | mysql -u root -h 127.0.0.1 -p "$2"
-}
-
-function ssl-req() {
-  local filename
-  filename=$(echo $1 | tr . _)
-  openssl req -nodes \
-    -newkey rsa:2048 \
-    -keyout "$filename.key" \
-    -out "$filename.csr" \
-    -subj "/C=NL/ST=Utrecht/L=Utrecht/O=Brightin/OU=Operations/CN=$1"
 }
 
 function tosl {
@@ -49,30 +32,6 @@ function uk() {
 
 function dblah() {
   docker exec -t -i dropbox-lah dropbox "$@"
-}
-
-function fix-slack-panel() {
-  ls -l slack*.svg
-  sudo \rm slack-indicator-highlight.svg
-  sudo mv slack-indicator-unread.svg slack-indicator-highlight.svg
-  sudo ln -s slack-indicator.svg slack-indicator-unread.svg
-  ls -l slack*.svg
-}
-
-function sshrcbs() {
-  ssh "bs -t 'cd ~/app && /home/ubuntu/.rbenv/shims/bundle exec rails c'"
-}
-
-function watch-ci() {
-  local result
-  result=$(hub ci-status)
-
-  while [[ "$result" = "pending" ]]; do
-    result=$(hub ci-status)
-    echo "$result"
-
-    sleep 4
-  done
 }
 
 #
