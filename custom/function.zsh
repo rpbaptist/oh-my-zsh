@@ -78,22 +78,33 @@ function watch-ci() {
 #
 # Some usefull kubectl commands
 #
-function kube::find-namespace() {
-  kubectl get namespaces | tail -n +2 | fzf | awk '/(.*)/ {print $1}'
+function kube-find-namespace() {
+  kubectl get namespaces | tail -n +2 | fzf -q "$1" | awk '/(.*)/ {print $1}'
 }
-function kube::app-pod() {
-  NAMESPACE=$1
-  kubectl get pods -n "$NAMESPACE" | awk '/(.*)-app-(.*) / {print $1}' | head -n 1
+function kube-app-pod() {
+  kubectl get pods -n "$1" | awk '/(.*)-app-(.*) / {print $1}' | head -n 1
 }
 function kube-rc() {
-  NAMESPACE=$(kube::find-namespace)
-  APP_POD=$(kube::app-pod $NAMESPACE)
-  echo "Dropping into rails console on $APP_POD in $NAMESPACE"
-  kubectl exec -it "$APP_POD" -n "$NAMESPACE" rails c
+  local namespace
+  namespace="$(kube-find-namespace "$1")"
+  local pod
+  pod="$(kube-app-pod "$namespace")"
+  echo "Dropping into rails console on $pod in $namespace"
+  kubectl exec -it "$pod" -n "$namespace" -- rails c
 }
 function kube-ssh() {
-  NAMESPACE=$(kube::find-namespace)
-  APP_POD=$(kube::app-pod $NAMESPACE)
-  echo "Dropping into bash on $APP_POD in $NAMESPACE"
-  kubectl exec -it "$APP_POD" -n "$NAMESPACE" bash
+  local namespace
+  namespace="$(kube-find-namespace "$1")"
+  local pod
+  pod="$(kube-app-pod "$namespace")"
+  echo "Dropping into shell on $pod in $namespace"
+  kubectl exec -it "$pod" -n "$namespace" -- bash
+}
+function kube-log() {
+  local namespace
+  namespace="$(kube-find-namespace "$1")"
+  local pod
+  pod="$(kube-app-pod "$namespace")"
+  echo "Tailing logs on $pod in $namespace"
+  kubectl logs "$pod" -n "$namespace" -f
 }
