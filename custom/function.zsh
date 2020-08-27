@@ -41,48 +41,29 @@ function kube-find-namespace() {
   kubectl get namespaces | tail -n +2 | fzf -q "$1" | awk '/(.*)/ {print $1}'
 }
 
-function kube-pod-type() {
-  if [ -z "$1" ]; then
-    echo "app"
-  else
-    echo "$1"
-  fi
-}
-
 function kube-pod() {
   local namespace
-  namespace="$1"
   local pod_type
-  pod_type="$(kube-pod-type "$2")"
+  namespace="$1"
+  pod_type="$2"
   kubectl get pods -n "$namespace" | awk -v pattern=".+-$pod_type-.+" '$0 ~ pattern {print $1}' | head -n 1
 }
 
-function kube-rc() {
+function kube() {
+  local cmd
+  local pod_type
   local namespace
-  namespace="$(kube-find-namespace "$1")"
-  local pod
-  pod="$(kube-pod "$namespace" "$2")"
+  cmd="$1"
+  pod_type="$2"
+  namespace="$(kube-find-namespace "$3")"
+  pod="$(kube-pod "$namespace" "$pod_type")"
 
-  echo "Dropping into rails console on $pod in $namespace"
-  kubectl exec -it "$pod" -n "$namespace" -- rails c
-}
-
-function kube-ssh() {
-  local namespace
-  namespace="$(kube-find-namespace "$1")"
-  local pod
-  pod="$(kube-pod "$namespace" "$2")"
-
-  echo "Dropping into shell on $pod in $namespace"
-  kubectl exec -it "$pod" -n "$namespace" -- bash
-}
-
-function kube-log() {
-  local namespace
-  namespace="$(kube-find-namespace "$1")"
-  local pod
-  pod="$(kube-pod "$namespace" "$2")"
-
-  echo "Tailing logs on $pod in $namespace"
-  kubectl logs "$pod" -n "$namespace" -f
+  case "$cmd" in
+    "rc")  echo "Dropping into rails console on $pod in $namespace"
+           kubectl exec -it "$pod" -n "$namespace" -- rails c;;
+    "ssh") echo "Dropping into shell on $pod in $namespace"
+           kubectl exec -it "$pod" -n "$namespace" -- bash;;
+    "log") echo "Tailing logs on $pod in $namespace"
+           kubectl logs "$pod" -n "$namespace" -f;;
+  esac
 }
