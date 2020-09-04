@@ -46,7 +46,7 @@ function kube-pod() {
   local pod_type
   namespace="$1"
   pod_type="$2"
-  kubectl get pods -n "$namespace" | awk -v pattern=".+-$pod_type-.+" '$0 ~ pattern {print $1}' | head -n 1
+  kubectl get pods -n "$namespace" | awk -v pattern=".+-$pod_type-.+Running" '$0 ~ pattern {print $1}' | head -n 1
 }
 
 function kube() {
