@@ -38,3 +38,6 @@ alias lco='cd ~/code/lendahand/core'
 alias lpp='cd ~/code/lendahand/plusplus'
 alias lfr='cd ~/code/lendahand/framework'
 alias lfe='cd ~/code/lendahand/frontend'
+alias qmk='cd ~/code/qmk_firmware'
+
+alias arst="asdf"
