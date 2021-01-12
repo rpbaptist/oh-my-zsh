@@ -42,4 +42,4 @@ alias qmk='cd ~/code/qmk_firmware'
 
 alias arst="asdf"
 
-alias dotgit="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+alias dotgit="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
