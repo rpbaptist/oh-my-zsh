@@ -13,7 +13,7 @@ alias scp="noglob scp"
 alias ghostscript="/usr/bin/gs"
 alias toclip="xclip -sel clip <"
 
-alias todo="subl ~/Dropbox/Notes/my.tasks"
+alias todo="subl ~/Drive/Notes/my.tasks"
 
 alias dirsize="du -sch ./* | sort -h"
 
@@ -41,3 +41,5 @@ alias lfe='cd ~/code/lendahand/frontend'
 alias qmk='cd ~/code/qmk_firmware'
 
 alias arst="asdf"
+
+alias dotgit="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
