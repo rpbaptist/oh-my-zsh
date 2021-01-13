@@ -41,5 +41,3 @@ alias lfe='cd ~/code/lendahand/frontend'
 alias qmk='cd ~/code/qmk_firmware'
 
 alias arst="asdf"
-
-alias dotgit="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
