@@ -45,3 +45,22 @@ alias arst="asdf"
 alias dotgit="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
 alias qmkcli="/home/richard/.local/bin/qmk"
+
+# git
+
+alias gs='git status'
+alias gdh='git diff HEAD'
+alias gdm='git diff master'
+
+alias grho='git reset --hard @{upstream}'
+alias gcf='git commit --fixup'
+
+# Delete merged branches on master
+alias gbdm='git branch --merged | egrep -v "(^\*|master|production)" | xargs -r -n 1 git branch -d'
+
+alias gsync='git fetch && git pull && gbdm && git remote prune origin'
+alias gclean='git reset --hard && git clean -fd'
+
+# hub shortcuts
+alias gpr='hub pull-request'
+# alias gmrc='lab mr create $1 -d'
