@@ -48,6 +48,7 @@ alias qmkcli="/home/richard/.local/bin/qmk"
 alias gs='git status'
 alias gdh='git diff HEAD'
 alias gdm='git diff master'
+alias gpu='git push -u'
 
 alias grho='git reset --hard @{upstream}'
 alias gcf='git commit --fixup'
@@ -60,4 +61,4 @@ alias gclean='git reset --hard && git clean -fd'
 
 # hub shortcuts
 alias gpr='hub pull-request'
-# alias gmrc='lab mr create $1 -d'
+alias gprc='hub pull-request'
