@@ -32,12 +32,6 @@ alias ansible-update="ANSIBLE_CONFIG=$HOME/.ansible/ansible.cfg \
                       --inventory $HOME/.ansible/hosts \
                       --vault-password-file $HOME/.ansible/vault-pass.txt"
 
-alias lbo='cd ~/code/lendahand/backoffice'
-alias lah='cd ~/code/lendahand/lendahand'
-alias lco='cd ~/code/lendahand/core'
-alias lpp='cd ~/code/lendahand/plusplus'
-alias lfr='cd ~/code/lendahand/framework'
-alias lfe='cd ~/code/lendahand/frontend'
 alias qmk='cd ~/code/qmk_firmware'
 
 alias arst="asdf"
@@ -62,3 +56,6 @@ alias gclean='git reset --hard && git clean -fd'
 # hub shortcuts
 alias gpr='hub pull-request'
 alias gprc='hub pull-request'
+
+# coding
+alias wga='cd code/webinargeek/app'
