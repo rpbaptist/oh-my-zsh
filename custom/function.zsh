@@ -83,5 +83,9 @@ function grbi() {
 }
 
 function gcfr() {
-  git commit --fixup $1 && git rebase -i $1^
+  git commit --fixup "$1" && git rebase -i "$1^"
+}
+
+function wgfast() {
+  sudo wg-quick "$1" "$WG_CONFIG_FILE"
 }
