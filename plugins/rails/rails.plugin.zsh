@@ -50,46 +50,44 @@ alias ru='rails runner'
 alias rs='rails server'
 alias rsd='rails server --debugger'
 alias rsp='rails server --port'
+alias rdm='rails db:migrate'
+alias rdms='rails db:migrate:status'
+alias rdreset='rails db:{drop,create,migrate}'
+alias rdr='rails db:rollback'
+alias rdc='rails db:create'
+alias rds='rails db:seed'
+alias rdd='rails db:drop'
+alias rdrs='rails db:reset'
+alias rdtc='rails db:test:clone'
+alias rdtp='rails db:test:prepare'
+alias rdmtc='rails db:migrate db:test:clone'
+alias rdsl='rails db:schema:load'
+alias rdrt='rails db:{drop,create,schema:load,migrate} -g RET'
+alias rlc='rails log:clear'
+alias rn='rails notes'
+alias rt='rails test'
+alias rmd='rails middleware'
+alias rsts='rails stats'
 
-# Rake aliases
-alias rdm='rake db:migrate'
-alias rdms='rake db:migrate:status'
-alias rdreset='rake db:{drop,create,migrate}'
-alias rdr='rake db:rollback'
-alias rdc='rake db:create'
-alias rds='rake db:seed'
-alias rdd='rake db:drop'
-alias rdrs='rake db:reset'
-alias rdtc='rake db:test:clone'
-alias rdtp='rake db:test:prepare'
-alias rdmtc='rake db:migrate db:test:clone'
-alias rdsl='rake db:schema:load'
-alias rdrt='rake db:{drop,create,schema:load,migrate} -g RET'
-alias rlc='rake log:clear'
-alias rn='rake notes'
-alias rt='rake test'
-alias rmd='rake middleware'
-alias rsts='rake stats'
+# # legacy stuff
+# alias sstat='thin --stats "/thin/stats" start'
+# alias sg='ruby script/generate'
+# alias sd='ruby script/destroy'
+# alias sp='ruby script/plugin'
+# alias sr='ruby script/runner'
+# alias ssp='ruby script/spec'
+# alias sc='ruby script/console'
+# alias sd='ruby script/server --debugger'
 
-# legacy stuff
-alias sstat='thin --stats "/thin/stats" start'
-alias sg='ruby script/generate'
-alias sd='ruby script/destroy'
-alias sp='ruby script/plugin'
-alias sr='ruby script/runner'
-alias ssp='ruby script/spec'
-alias sc='ruby script/console'
-alias sd='ruby script/server --debugger'
-
-function remote_console() {
-  /usr/bin/env ssh $1 "( cd $2 && ruby script/console production )"
-}
+# function remote_console() {
+#   /usr/bin/env ssh $1 "( cd $2 && ruby script/console production )"
+# }
 
 function rr() {
   if [ -z $1 ]
   then
-    rake routes
+    rails routes
   else
-    rake routes | grep $1
+    rails routes | grep $1
   fi
 }
