@@ -42,6 +42,7 @@ alias qmkcli="/home/richard/.local/bin/qmk"
 alias gs='git status'
 alias gdh='git diff HEAD'
 alias gdm='git diff master'
+alias gdd='git diff develop'
 alias gpu='git push -u'
 
 alias grho='git reset --hard @{upstream}'
