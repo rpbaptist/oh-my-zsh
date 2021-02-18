@@ -20,20 +20,6 @@ function tosl {
   \rm -f "$tmp_subl_file"
 }
 
-# Update kernel to given version
-function uk() {
-  local version="$1"
-  sudo apt install "linux-headers-$version" \
-                   "linux-headers-$version-generic" \
-                   "linux-image-$version-generic" \
-                   "linux-tools-$version-generic" \
-                   "linux-image-extra-$version-generic"
-}
-
-function dblah() {
-  docker exec -t -i dropbox-lah dropbox "$@"
-}
-
 #
 # Some usefull kubectl commands
 #
