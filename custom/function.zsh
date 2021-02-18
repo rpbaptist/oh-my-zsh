@@ -68,6 +68,17 @@ function dblah() {
 #   esac
 # }
 
+function git-get-branch() {
+  git branch | fzf -q "$1" | awk '/(.*)/ {print $1}'
+}
+
+function gcof() {
+  local branch
+  branch="$(git-get-branch "$1")"
+
+  git checkout "$branch"
+}
+
 # git
 
 function grbi() {
