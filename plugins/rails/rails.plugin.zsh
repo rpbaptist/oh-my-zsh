@@ -84,10 +84,10 @@ alias rsts='rails stats'
 # }
 
 function rr() {
-  if [ -z $1 ]
+  if [ -z "$1" ]
   then
     rails routes
   else
-    rails routes | grep $1
+    rails routes | rg "$1"
   fi
 }
