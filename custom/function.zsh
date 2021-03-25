@@ -86,3 +86,13 @@ function gcfr() {
 function wgfast() {
   sudo wg-quick "$1" "$WG_CONFIG_FILE"
 }
+
+function find-note() {
+  find "$NOTES_PATH" -type f -name "*.md" | awk -F "$NOTES_PATH/" '{print $2}' | fzf -q "$1"
+}
+
+function notes() {
+  local file
+  file="$(find-note "$1")"
+  subl -n -a "$NOTES_PATH" "$NOTES_PATH/$file"
+}
