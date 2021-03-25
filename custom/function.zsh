@@ -55,7 +55,7 @@ function tosl {
 # }
 
 function git-get-branch() {
-  git branch | fzf -q "$1" | awk '/(.*)/ {print $1}'
+  git branch -vv | fzf -q "$1" | awk '/(.*)/ {print $1}'
 }
 
 function gcof() {
