@@ -92,7 +92,12 @@ function find-note() {
 }
 
 function notes() {
-  local file
-  file="$(find-note "$1")"
-  subl -n -a "$NOTES_PATH" "$NOTES_PATH/$file"
+  if [ -z "$1" ]
+  then
+    subl -n "$NOTES_PATH"
+  else
+    local file
+    file="$(find-note "$1")"
+    subl -n -a "$NOTES_PATH" "$NOTES_PATH/$file"
+  fi
 }
