@@ -54,10 +54,6 @@ alias gbdm='git branch --merged | egrep -v "(^\*|master|production)" | xargs -r 
 alias gsync='git fetch && git pull && gbdm && git remote prune origin'
 alias gclean='git reset --hard && git clean -fd'
 
-# hub shortcuts
-alias gpr='hub pull-request'
-alias gprc='hub pull-request'
-
 # coding
 alias wga='cd ~/code/webinargeek/app'
 alias wgp='cd ~/code/webinargeek/phoenix'
