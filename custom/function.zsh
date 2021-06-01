@@ -13,15 +13,6 @@ function mysql-restore() {
     ) | mysql -u root -h 127.0.0.1 -p "$2"
 }
 
-function tosl {
-  local tmp_subl_file
-  tmp_subl_file=$(mktemp /tmp/subl-tempfile-XXXXXXXXXXXX)
-
-  cat > "$tmp_subl_file"
-  subl --wait "$tmp_subl_file"
-  \rm -f "$tmp_subl_file"
-}
-
 #
 # Some usefull kubectl commands
 #
