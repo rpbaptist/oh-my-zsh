@@ -103,3 +103,30 @@ function notes() {
     subl -n -a "$NOTES_PATH" "$NOTES_PATH/$file"
   fi
 }
+
+function shorthand-find-function() {
+  local path
+  local name
+  local type
+
+  type="$1"
+
+  if [ -z "$3" ]
+  then
+    path="."
+    name="$2"
+  else
+    path="$2"
+    name="$3"
+  fi
+
+  /usr/bin/find "$path" -type "$type" -name "$name"
+}
+
+function ff() {
+  shorthand-find-function "f" "$1" "$2"
+}
+
+function fd() {
+  shorthand-find-function "d" "$1" "$2"
+}

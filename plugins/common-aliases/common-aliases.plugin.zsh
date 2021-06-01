@@ -36,8 +36,8 @@ alias -g P="2>&1| pygmentize -l pytb"
 
 alias dud='du -d 1 -h'
 alias duf='du -sh *'
-(( $+commands[fd] )) || alias fd='find . -type d -name'
-alias ff='find . -type f -name'
+# (( $+commands[fd] )) || alias fd='find . -type d -name'
+# alias ff='find . -type f -name'
 
 alias h='history'
 alias hgrep="fc -El 0 | grep"
