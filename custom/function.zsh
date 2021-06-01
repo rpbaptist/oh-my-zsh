@@ -1,3 +1,5 @@
+#! /bin/bash
+
 function mysql-restore() {
     (
         echo "SET AUTOCOMMIT=0;"
