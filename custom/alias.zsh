@@ -32,10 +32,9 @@ alias ansible-update="ANSIBLE_CONFIG=$HOME/.ansible/ansible.cfg \
                       --inventory $HOME/.ansible/hosts \
                       --vault-password-file $HOME/.ansible/vault-pass.txt"
 
-alias qmk='cd ~/code/qmk_firmware'
+alias qmkm=cd "$HOME/code/qmk_firmware" && subl -n -a ./ keyboards/crkbd/keymaps/rpbaptist/keymap.c
 
 alias arst="asdf"
-alias qmkcli="/home/richard/.local/bin/qmk"
 
 # git
 
