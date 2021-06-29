@@ -5,6 +5,9 @@ alias zshenv="$EDITOR ~/.zshenv"
 alias zshrc="$EDITOR ~/.zshrc"
 alias omz="$EDITOR ~/.oh-my-zsh"
 
+alias fd="fdfind"
+alias bat="batcat"
+
 alias sudo="sudo "
 alias sl="subl"
 alias scp="noglob scp"
@@ -33,7 +36,7 @@ alias ansible-update="ANSIBLE_CONFIG=$HOME/.ansible/ansible.cfg \
                       --vault-password-file $HOME/.ansible/vault-pass.txt"
 
 alias qmkr="cd $HOME/code/qmk_firmware"
-alias qmkm="subl -n -a ./ keyboards/crkbd/keymaps/rpbaptist/keymap.c"
+alias qmkm="subl -n -a $HOME/code/qmk_firmware $HOME/code/qmk_firmware/keyboards/crkbd/keymaps/rpbaptist/keymap.c"
 
 alias arst="asdf"
 
