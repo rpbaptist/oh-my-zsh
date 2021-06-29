@@ -179,7 +179,7 @@ alias ghh='git help'
 
 alias gignore='git update-index --assume-unchanged'
 alias gignored='git ls-files -v | grep "^[[:lower:]]"'
-alias git-svn-dcommit-push='git svn dcommit && git push github $(git_main_branch):svntrunk'
+# alias git-svn-dcommit-push='git svn dcommit && git push github $(git_main_branch):svntrunk'
 
 alias gk='\gitk --all --branches'
 alias gke='\gitk --all $(git log -g --pretty=%h)'
@@ -242,18 +242,17 @@ alias grup='git remote update'
 alias grv='git remote -v'
 
 alias gsb='git status -sb'
-alias gsd='git svn dcommit'
+# alias gsd='git svn dcommit'
 alias gsh='git show'
 alias gsi='git submodule init'
 alias gsps='git show --pretty=short --show-signature'
-alias gsr='git svn rebase'
+# alias gsr='git svn rebase'
 alias gss='git status -s'
-alias gst='git status'
+
+alias gst='git stash'
 
 # use the default stash push on git 2.13 and newer
-is-at-least 2.13 "$git_version" \
-  && alias gsta='git stash push' \
-  || alias gsta='git stash save'
+alias gsta='git stash push'
 
 alias gstaa='git stash apply'
 alias gstc='git stash clear'
